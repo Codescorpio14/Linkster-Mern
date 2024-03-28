@@ -53,6 +53,8 @@ const loginUser = asyncHandler(async (req, res) => {
   res
     .cookie("jwt", token, {
       httpOnly: true,
+      secure: true,
+      sameSite: "lax",
       maxAge: 24 * 60 * 60 * 1000,
     })
     .status(200)
@@ -79,7 +81,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
   res
     .json({ msg: "user deleted successfully" })
-    .clearCookie("jwt", { httpOnly: true });
+    .clearCookie("jwt", { httpOnly: true, secure: true, sameSite: "lax" });
 });
 
 module.exports = { createUser, loginUser, logoutUser, deleteUser };
