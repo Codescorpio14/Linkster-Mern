@@ -7,7 +7,7 @@ const authUser = asyncHandler(async (req, res, next) => {
   if (!authToken) {
     res
       .status(401)
-      .clearCookie("jwt", { httpOnly: true, secure: true, sameSite: "lax" });
+      .clearCookie("jwt", { httpOnly: true, secure: true, sameSite: "none" });
     throw new Error("invalid authorization token");
   }
   const payload = jwt.verify(authToken, process.env.JWT_SECRET);
