@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const Profile = () => {
   const [deleteUser] = useDeleteMutation();
-  const { name, email, country, memberSince } = useSelector(
+  const { name, email, country, memberSince, role } = useSelector(
     (state) => state.auth.user
   );
   const [deleteModal, setDeleteModal] = useState(false);
@@ -70,6 +70,9 @@ const Profile = () => {
       <div>
         <p className="mb-2 text-lg">
           <span className="font-semibold">Name:</span> {name}
+        </p>
+        <p className="mb-2 text-lg capitalize">
+          <span className="font-semibold">Rank:</span> {role}
         </p>
         <p className="mb-2 text-lg">
           <span className="font-semibold">Country:</span> {country}

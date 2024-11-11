@@ -60,6 +60,7 @@ const loginUser = asyncHandler(async (req, res) => {
     .status(200)
     .json({
       name: user.name,
+      role: user.role,
       email: user.email,
       country: user.country,
       memberSince: user.createdAt,

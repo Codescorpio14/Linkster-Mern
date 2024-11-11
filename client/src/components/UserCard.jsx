@@ -1,5 +1,5 @@
 const UserCard = ({ user }) => {
-  const { name, links, country } = user;
+  const { name, links, country, role } = user;
 
   const linksElm = links?.map((link, i) => (
     <li key={i}>
@@ -13,7 +13,7 @@ const UserCard = ({ user }) => {
     <div className="border rounded-md shadow-lg shadow-gray-100 p-4">
       <h3 className="text-xl font-semibold mb-1">{name}</h3>
 
-      <p className="text-xs font-semibold">Member</p>
+      <p className="text-xs font-semibold capitalize">{role}</p>
       <div className="mt-2 font-semibold">
         <p className="text-sm mb-1 uppercase">from {country}</p>
         <h4>Social Contacts</h4>

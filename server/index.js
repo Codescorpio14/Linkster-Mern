@@ -16,8 +16,6 @@ const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
 
-app.get("/", (req, res) => res.send("welcome to link server"));
-
 // Middlewares
 
 app.use(

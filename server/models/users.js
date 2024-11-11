@@ -12,10 +12,6 @@ const userSchema = new mongoose.Schema(
       maxlength: 20,
       require: true,
     },
-    country: {
-      type: String,
-      require: [true, "Please provide a country"],
-    },
     email: {
       type: String,
       require: [true, "Please provide an email"],
@@ -24,6 +20,16 @@ const userSchema = new mongoose.Schema(
         "Please provide a valid email",
       ],
       unique: true,
+    },
+    role: {
+      type: String,
+      enum: ["admin", "member"],
+      require: [true, "A role must be provided"],
+      default: "member",
+    },
+    country: {
+      type: String,
+      require: [true, "Please provide a country"],
     },
     password: {
       type: String,
